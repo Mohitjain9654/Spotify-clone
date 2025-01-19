@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="shortcut icon" href="https://open.spotify.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/Spotify.css">
+    <link rel="stylesheet" href="css/Utility.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=play_circle" />
+</head>
+
+<body>
+    <div class="container flex bg-black">
+        <div class="left">
+
+            <div class="home m-1 bg-grey rounded p-1">
+                <div class="logo">
+                    <img class="logo invert" src="svg/logo.svg" alt="logo">
+                    <div class="close">
+                        <img src="svg/close_menu.svg" alt="" class="close_svg">
+                    </div>
+                </div>
+                <ul>
+                    <li><img class="invert" src="svg/home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="svg/search.svg" alt="search">Search</li>
+                </ul>
+            </div>
+
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading items-center">
+                    <img class="invert library-logo" src="svg/library.svg" alt="library">
+                    <h2>
+                        Your Library
+                    </h2>
+                </div>
+
+                <div class="flow">
+                    <div class="song_list">
+                        <ul>
+                            <!-- <li>
+                                <img src="svg/music.svg" alt="">
+                                <div class="info">
+                                    <div class="songName">Song Name</div>
+                                    <div class="songArtist">Song Artist</div>
+                                </div>
+                                <div class="playnow">
+                                    <span>play now</span>
+                                    <img src="svg/playnow.svg" class="invert" alt="">
+
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="footer">
+                        <div class="wrap">
+                            <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
+                            <div class="privacy"><a href="https://www.spotify.com/in-en/safetyandprivacy/"><span>Privacy
+                                        Center</span></a></div>
+                            <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy
+                                        Policy</span></a></div>
+                            <div><a href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a>
+                            </div>
+                            <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About
+                                        Ads</span></a>
+                            </div>
+                            <div><a href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right rounded ">
+            <div class="header bg-black">
+                <div class="nav">
+                    <div class="menu">
+                        <img class="menu_svg" src="svg/menu.svg" alt="">
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 -960 960 960" width="21px"
+                        fill="#FFFFFF">
+                        <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 -960 960 960" width="21px"
+                        fill="#FFFFFF">
+                        <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                    </svg>
+                </div>
+                <div class="button">
+                    <button class="sign-up">Sign Up</button>
+                    <button class="login">Log in</button>
+                </div>
+            </div>
+
+            <div class="playlist bg-grey rounded">
+                <div class="header_bottom">
+
+                    <div class="spotifyPlaylists">
+                        <!-- <h1>Spotify Playlists</h1>
+                        <div class="cardContainer">
+                            <div class="cards">
+
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="spotifyPlaylists">
+                        <h1>Made for you</h1>
+                        <div class="cardContainer">
+                            <div class="cards">
+                                <div class="card rounded">
+                                    <img class="rounded"
+                                        src="https://i.scdn.co/image/ab67616d00001e02aad3f4b601ae8763b3fc4e88" alt="">
+                                    <h2>Glory</h2>
+                                    <p>Yo Yo Honey Singh</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://i.scdn.co/image/ab67616d00001e026404721c1943d5069f0805f3" alt="">
+                                    <h2>Aashiqui </h2>
+                                    <p>Mithoon, Ankit Tiwari, Jeet Gannguli</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://i.scdn.co/image/ab67616d00001e0272a77d038887cdc425f5ee55" alt="">
+                                    <h2>Jo Tum Mere Ho</h2>
+                                    <p>Anuv Jain</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://i.scdn.co/image/ab67616d00001e02bb25239324c4e16ae01fda36" alt="">
+                                    <h2>Making Memories</h2>
+                                    <p>Karan Aujla, Ikky</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://i.scdn.co/image/ab67616d00001e02707ea5b8023ac77d31756ed4" alt="">
+                                    <h2>Yeh Jawaani ha Deewani</h2>
+                                    <p>Pritam</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://i.scdn.co/image/ab67616d00001e025e16168f7e8ff4fb8aace6cf" alt="">
+                                    <h2>Aj Ki Raat (From "Street 2")</h2>
+                                    <p>Sachin-Jigar, Amitabh Bhattacharya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spotifyPlaylists">
+                        <h1>Popular radio</h1>
+                        <div class="cardContainer">
+                            <div class="cards">
+                                <div data-folder="Arijit_singh_radio" class="card rounded">
+                                    <div class="play">
+                                        <img src="svg/circle_play.svg" alt="">
+                                    </div>
+                                    <img class="rounded"
+                                        src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/4YRxDV8wJFPHPTeXepOstw/en"
+                                        alt="">
+                                    <h2></h2>
+                                    <p>With Sachin-Jigar, Mithoon, Jeet Gannguli and more</p>
+                                </div>
+
+                                <div data-folder="diljit_dosanjh_radio" class="card">
+                                    <div class="play">
+                                        <img src="svg/circle_play.svg" alt="">
+                                    </div>
+                                    <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/2FKWNmZWDBZR4dE5KX4plR/en"
+                                        alt="">
+                                    <h2></h2>
+                                    <p>With Karan Aujla, AP Dhillon, Shubh and more</p>
+                                </div>
+
+                                <div data-folder="kk-radio" class="card">
+                                    <div class="play">
+                                        <img src="svg/circle_play.svg" alt="">
+                                    </div>
+                                    <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/4fEkbug6kZzzJ8eYX6Kbbp/en"
+                                        alt="">
+                                    <h2></h2>
+                                    <p>With Atif Aslam, Shaan, Mohit Chauhan and more</p>
+                                </div>
+
+                                <div class="card">
+                                    <div class="play">
+                                        <img src="svg/circle_play.svg" alt="">
+                                    </div>
+                                    <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/1mYsTxnqsietFxj1OgoGbG/en"
+                                        alt="">
+                                    <h2></h2>
+                                    <p>With Harris Jayaraj, Anirudh Ravichander, Santhosh Narayanan and more</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/0GF4shudTAFv8ak9eWdd4Y/en"
+                                        alt="">
+                                    <h2></h2>
+                                    <p>With Mohammed Rafi, Asha Bhosle, Mukesh and more</p>
+                                </div>
+
+                                <div class="card">
+                                    <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/0oOet2f43PA68X5RxKobEy/en"
+                                        alt="">
+                                    <h2></h2>
+                                    <p>With A.R. Rahman, Vishal-Shekhar, Atif Aslam and more</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                </div> <!--header_bottom-->
+            </div> <!--playlist-->
+
+            <div class="playbar">
+                <div class="seekbar">
+                    <div class="circle">
+
+                    </div>
+                </div>
+
+                <!-- volume -->
+                <div class="volume">
+                    <img id="volume_down" src="svg/volume_down.svg" alt="">
+                    <div class="volume_bar">
+                        <div class="volume_circle">
+
+                        </div>
+                    </div>
+                    <img id="volume_up" src="svg/volume_up.svg" alt="">
+                </div>
+
+
+                <div class="abovebar">
+                    <div class="song_info red">
+
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="song_button">
+                        <img id="previous" src="svg/previous.svg" alt="" srcset="">
+                        <img id="play" src="svg/play.svg" alt="" srcset="">
+                        <img id="next" src="svg/next.svg" alt="" srcset="">
+                    </div>
+                    <div class="song_time">
+
+                    </div>
+                    
+                </div>
+
+            </div> <!--player-->
+
+        </div> <!--right-->
+    </div>
+    <script src="Spotify.js"> </script>
+</body>
+
+</html>
