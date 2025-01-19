@@ -33,12 +33,12 @@ async function getSongs(folder) {
   songUL.innerHTML = "";
 
   for (const song of songs) {
-    const imagePath = `https://mohitjain9654.github.io/Spotify-clone/<span class="math-inline">\{folder\}/</span>{song.replaceAll(".mp3", ".jpeg").replaceAll(".mp4", ".jpeg")}`;
+    const imagePath = `https://mohitjain9654.github.io/Spotify-clone/${folder}/</span>{song.replaceAll(".mp3", ".jpeg").replaceAll(".mp4", ".jpeg")}`;
     songUL.innerHTML += `<li>
 
-        <img src="<span class="math-inline">\{imagePath\}" onerror\="this\.src\='svg/music\.svg'" alt\=""\>
-<div class\="info"\>
-<div class\="songName"\></span>{song
+        <img src="${imagePath}" onerror="this.src='svg/music.svg'" alt="">
+<div class="info">
+<div class="songName"></span>{song
             .replace("/", "")
             .replaceAll("%20", " ")
             .replaceAll(".mp3", "")
@@ -155,13 +155,13 @@ async function displayAlbums() {
       let innercard = "";
       for (const song of playcard) {
         innercard += `
-          <div data-folder="<span class="math-inline">\{song\.folder\}" class\="card rounded"\>
-<div class\="play"\>
-<img src\="svg/circle\_play\.svg" alt\=""\>
-</div\>
-<img class\="rounded" src\="songs/</span>{song.folder}/cover.jpeg" alt="">
-            <h2><span class="math-inline">\{song\.title\}</h2\>
-<p\></span>{song.description}</p>
+          <div data-folder="${song.folder}" class="card rounded">
+<div class="play">
+<img src="svg/circle_play.svg" alt="">
+</div>
+<img class="rounded" src="songs/${song.folder}/cover.jpeg" alt="">
+            <h2><${song.title}</h2>
+<p>${song.description}</p>
           </div>
         `;
       }
