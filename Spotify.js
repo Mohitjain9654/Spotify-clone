@@ -5,7 +5,7 @@ let currFolder;
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`https://mohitjain9654.github.io/Spotify-clone.github.io/${folder}/`);
+  let a = await fetch(`https://mohitjain9654.github.io/Spotify-clone/${folder}/`);
   console.log("a: ", a);
 
   let response = await a.text();
@@ -33,7 +33,7 @@ async function getSongs(folder) {
   songUL.innerHTML = "";
 
   for (const song of songs) {
-    const imagePath = `https://mohitjain9654.github.io/Spotify-clone.github.io/<span class="math-inline">\{folder\}/</span>{song.replaceAll(".mp3", ".jpeg").replaceAll(".mp4", ".jpeg")}`;
+    const imagePath = `https://mohitjain9654.github.io/Spotify-clone/<span class="math-inline">\{folder\}/</span>{song.replaceAll(".mp3", ".jpeg").replaceAll(".mp4", ".jpeg")}`;
     songUL.innerHTML += `<li>
 
         <img src="<span class="math-inline">\{imagePath\}" onerror\="this\.src\='svg/music\.svg'" alt\=""\>
@@ -90,7 +90,7 @@ const playMusic = (track) => {
 
 async function displayAlbums() {
   //fetch from diifrent folder
-  let playlist = await fetch(`https://mohitjain9654.github.io/Spotify-clone.github.io/songs/`);
+  let playlist = await fetch(`https://mohitjain9654.github.io/Spotify-clone/songs/`);
   let playlistResponse = await playlist.text();
   let playlistdiv = document.createElement("div");
   playlistdiv.innerHTML = playlistResponse;
@@ -104,11 +104,11 @@ async function displayAlbums() {
     if (element.href.includes("/songs/")) {
       let playlistfolder = element.href.split("/songs/").slice(-1)[0];
       let playlistjson = await fetch(
-        `https://mohitjain9654.github.io/Spotify-clone.github.io/songs/${playlistfolder}/info.json`
+        `https://mohitjain9654.github.io/Spotify-clone/songs/${playlistfolder}/info.json`
       );
       let playlistResponsejson = await playlistjson.json();
 
-      let a = await fetch(`https://mohitjain9654.github.io/Spotify-clone.github.io/songs/${playlistfolder}`);
+      let a = await fetch(`https://mohitjain9654.github.io/Spotify-clone/songs/${playlistfolder}`);
       let responses = await a.text();
       let div = document.createElement("div");
       div.innerHTML = responses;
@@ -123,7 +123,7 @@ async function displayAlbums() {
         if (b.href.includes("/songs")) {
           let folder = b.href.split("/songs/").slice(-1)[0];
 
-          const baseUrl = "https://mohitjain9654.github.io/Spotify-clone.github.io/songs";
+          const baseUrl = "https://mohitjain9654.github.io/Spotify-clone/songs";
           if (folder.startsWith(baseUrl)) {
             console.warn(`Skipping invalid folder: '${folder}'`);
             continue; // Exit this function without proceeding
@@ -136,7 +136,7 @@ async function displayAlbums() {
           }
 
           let a = await fetch(
-            `https://mohitjain9654.github.io/Spotify-clone.github.io/songs/${folder}/info.json`
+            `https://mohitjain9654.github.io/Spotify-clone/songs/${folder}/info.json`
           );
 
           let response = await a.json();
