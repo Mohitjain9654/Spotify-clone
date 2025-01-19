@@ -1,2 +1,2 @@
 # Spotify-clone.github.io
-This is Sptify Clone
+This is Spotify Clone
