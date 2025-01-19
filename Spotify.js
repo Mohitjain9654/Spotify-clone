@@ -6,6 +6,8 @@ let currFolder;
 async function getSongs(folder) {
   currFolder = folder;
   let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
+  console.log("a: ", a);
+
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -97,7 +99,6 @@ async function displayAlbums() {
   let playlistanchor = playlistdiv.getElementsByTagName("a");
   let playlistcard = document.querySelector(".header_bottom");
   let playlistArray = Array.from(playlistanchor);
-  console.log("playlistArray: ", playlistArray);
 
   // for (let index = 3; index < playlistArray.length; index++) {
   //   const element = playlistArray[index];
@@ -227,12 +228,10 @@ async function displayAlbums() {
           let folder = b.href.split("/songs/").slice(-1)[0];
 
           const baseUrl = "http://127.0.0.1:5500/songs";
-          console.log(folder);
           if (folder.startsWith(baseUrl)) {
             console.warn(`Skipping invalid folder: '${folder}'`);
             continue; // Exit this function without proceeding
           }
-          console.log(folder);
 
           const json = "info.json";
           if (folder.endsWith(json)) {
@@ -245,7 +244,6 @@ async function displayAlbums() {
           );
 
           let response = await a.json();
-          console.log(response);
 
           // ... (rest of the folder validation and info.json fetching) ...
 
@@ -373,12 +371,6 @@ async function main() {
 
     let currentSongName = currentSong.src.split("/").slice(-1)[0];
     let index = songs.findIndex((song) => song.includes(currentSongName));
-    console.log(
-      "Previous: Current song name:",
-      currentSongName,
-      "Index:",
-      index
-    );
 
     if (index > 0) {
       playMusic(songs[index - 1]);
