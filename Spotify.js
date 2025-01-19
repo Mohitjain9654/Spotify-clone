@@ -32,26 +32,24 @@ async function getSongs(folder) {
     .getElementsByTagName("ul")[0];
   songUL.innerHTML = "";
 
-  
-  
   for (const song of songs) {
-    const imagePath = `https://mohitjain9654.github.io/Spotify-clone.github.io/${folder}/${song.replaceAll(".mp3", ".jpeg").replaceAll(".mp4", ".jpeg")}`;
+    const imagePath = `https://mohitjain9654.github.io/Spotify-clone.github.io/<span class="math-inline">\{folder\}/</span>{song.replaceAll(".mp3", ".jpeg").replaceAll(".mp4", ".jpeg")}`;
     songUL.innerHTML += `<li>
 
-                           <img src="${imagePath}" onerror="this.src='svg/music.svg'" alt="">
-                           <div class="info">
-                               <div class="songName">${song
-                                 .replace("/", "")
-                                 .replaceAll("%20", " ")
-                                 .replaceAll(".mp3", "")
-                                 .replaceAll(".mp4", "")
-                                 .replaceAll("_", " ")}</div>
-                               <div class="songArtist">Song Artist</div>
-                           </div>
-                           <div class="playnow">
-                                <span>play now</span>
-                               <img id="playnow" src="svg/playnow.svg" class="invert" alt="">
-                           </div></li>`;
+        <img src="<span class="math-inline">\{imagePath\}" onerror\="this\.src\='svg/music\.svg'" alt\=""\>
+<div class\="info"\>
+<div class\="songName"\></span>{song
+            .replace("/", "")
+            .replaceAll("%20", " ")
+            .replaceAll(".mp3", "")
+            .replaceAll(".mp4", "")
+            .replaceAll("_", " ")}</div>
+          <div class="songArtist">Song Artist</div>
+        </div>
+        <div class="playnow">
+          <span>play now</span>
+          <img id="playnow" src="svg/playnow.svg" class="invert" alt="">
+        </div></li>`;
   }
 
   //attach event listeners to each song
@@ -60,7 +58,7 @@ async function getSongs(folder) {
   ).forEach((e) => {
     e.addEventListener("click", (element) => {
       playMusic(
-        e
+        element
           .querySelector(".info")
           .firstElementChild.innerHTML.trim()
           .replaceAll(" ", "_") +
@@ -99,108 +97,6 @@ async function displayAlbums() {
   let playlistanchor = playlistdiv.getElementsByTagName("a");
   let playlistcard = document.querySelector(".header_bottom");
   let playlistArray = Array.from(playlistanchor);
-
-  // for (let index = 3; index < playlistArray.length; index++) {
-  //   const element = playlistArray[index];
-  //   console.log("element: ", element);
-
-  //   let playcard = [];
-  //   if (element.href.includes("/songs/")) {
-  //     let playlistfolder = element.href.split("/songs/").slice(-1)[0];
-  //     console.log("playlistfolder: ", playlistfolder);
-
-  //     let playlistjson = await fetch(
-  //       `https://mohitjain9654.github.io/Spotify-clone.github.io/songs/${playlistfolder}/info.json`
-  //     );
-  //     let playlistResponsejson = await playlistjson.json();
-  //     // console.log("playlistfolder: ", playlistResponsejson);
-
-  //     let a = await fetch(`https://mohitjain9654.github.io/Spotify-clone.github.io/songs/${playlistfolder}`);
-  //     let responses = await a.text();
-  //     let div = document.createElement("div");
-  //     div.innerHTML = responses;
-  //     let anchor = div.getElementsByTagName("a");
-  //     console.log("div: ", anchor);
-
-  //     //   console.log(anchor);
-  //     let array = Array.from(anchor);
-  //     for (let index = 4; index < array.length; index++) {
-  //       //     const e = array[index];
-  //       const b = array[index];
-  //       console.log("b: ", b);
-
-  //       if (b.href.includes("/songs")) {
-  //         let folder = b.href.split("/songs/").slice(-1)[0];
-  //         //get the metadata of the folder
-
-  //         const baseUrl = "https://mohitjain9654.github.io/Spotify-clone.github.io/songs";
-  //         console.log(folder);
-  //         if (folder.startsWith(baseUrl)) {
-  //           console.warn(`Skipping invalid folder: '${folder}'`);
-  //           continue; // Exit this function without proceeding
-  //         }
-  //         console.log(folder);
-
-  //         const json = "info.json";
-  //         if (folder.endsWith(json)) {
-  //           console.warn(`Skipping invalid folder: '${folder}'`);
-  //           continue; // Exit this function without proceeding
-  //         }
-
-  //         let a = await fetch(
-  //           `https://mohitjain9654.github.io/Spotify-clone.github.io/songs/${folder}/info.json`
-  //         );
-
-  //         let response = await a.json();
-  //         console.log(response);
-  //         playcard.push({
-  //           folder,
-  //           title: response.title,
-  //           description: response.description,
-  //         });
-
-  //         let innercard = "";
-
-  //         for (const song of playcard) {
-  //           innercard += `
-  //             <div data-folder="${song.folder}" class="card rounded">
-  //               <div class="play">
-  //                 <img src="svg/circle_play.svg" alt="">
-  //               </div>
-  //               <img class="rounded" src="songs/${song.folder}/cover.jpeg" alt="">
-  //               <h2>${song.title}</h2>
-  //               <p>${song.description}</p>
-  //             </div>
-  //           `;
-  //         }
-
-  //         playlistcard.innerHTML += `<div class="spotifyPlaylists">
-  //                         <h1>${playlistResponsejson.title}</h1>
-  //                         <div class="cardContainer">
-  //                             <div class="cards">
-  //                             ${innercard}
-  //                                 </div>
-  //                         </div>
-  //                     </div>`;
-  //       }
-
-  //       //load the playlist when ever the card it clicked
-  //       //   songs = await getSongs("songs/ncs"); i have to update this line
-  //       Array.from(document.getElementsByClassName("card")).forEach((e) => {
-  //         // console.log(e);
-  //         e.addEventListener("click", async (item) => {
-  //           // console.log("fetching songs");
-  //           songs = await getSongs(
-  //             `songs/${item.currentTarget.dataset.folder}`
-  //           );
-  //           playMusic(songs[0]);
-  //         });
-  //       });
-  //     }
-  //   }
-  // }
-
-  // ... (previous code for fetching playlist data and creating playlistArray) ...
 
   for (let index = 3; index < playlistArray.length; index++) {
     const element = playlistArray[index];
@@ -259,25 +155,25 @@ async function displayAlbums() {
       let innercard = "";
       for (const song of playcard) {
         innercard += `
-        <div data-folder="${song.folder}" class="card rounded">
-          <div class="play">
-            <img src="svg/circle_play.svg" alt="">
+          <div data-folder="<span class="math-inline">\{song\.folder\}" class\="card rounded"\>
+<div class\="play"\>
+<img src\="svg/circle\_play\.svg" alt\=""\>
+</div\>
+<img class\="rounded" src\="songs/</span>{song.folder}/cover.jpeg" alt="">
+            <h2><span class="math-inline">\{song\.title\}</h2\>
+<p\></span>{song.description}</p>
           </div>
-          <img class="rounded" src="songs/${song.folder}/cover.jpeg" alt="">
-          <h2>${song.title}</h2>
-          <p>${song.description}</p>
-        </div>
-      `;
+        `;
       }
 
       playlistcard.innerHTML += `<div class="spotifyPlaylists">
-      <h1>${playlistResponsejson.title}</h1>
-      <div class="cardContainer">
-        <div class="cards">
-          ${innercard} 
+        <h1>${playlistResponsejson.title}</h1>
+        <div class="cardContainer">
+          <div class="cards">
+            ${innercard} 
+          </div>
         </div>
-      </div>
-    </div>`;
+      </div>`;
 
       Array.from(document.getElementsByClassName("card")).forEach((e) => {
         // console.log(e);
@@ -294,7 +190,7 @@ async function displayAlbums() {
 async function main() {
   // Wait for the songs to be fetched
   await getSongs("songs/Spotify_Playlist/ncs");
-  //   playMusic(songs[0], true);
+  //   playMusic(songs[0], true);
 
   //display all the albums in the page
   displayAlbums();
@@ -323,7 +219,6 @@ async function main() {
 
     let durationMinutes = Math.floor(duration / 60);
     let durationSeconds = duration % 60;
-
     currentMinutes =
       currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
     durationMinutes =
@@ -419,7 +314,7 @@ async function main() {
   });
 
   //load the playlist when ever the card it clicked
-  //   songs = await getSongs("songs/ncs"); i have to update this line
+  //   songs = await getSongs("songs/ncs"); i have to update this line
   Array.from(document.getElementsByClassName("card")).forEach((e) => {
     e.addEventListener("click", async (item) => {
       songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
